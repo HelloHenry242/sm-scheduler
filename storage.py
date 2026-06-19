@@ -2,9 +2,8 @@
 
 import json
 
-from requests import post
-# Calling in the work already done in the nex file 
-from models import post_from_dict 
+from models import post_from_dict
+from models import SocialPost
 
 # The class Storage acts sort of like a filing cabinet for all social media posts.
 # It handles reading from and writing to the posts.json file.
@@ -15,7 +14,7 @@ class Storage:
     # This method saves a list of posts to the posts.json file.
     # It reads the JSON file and returns a list of SocialPost objects.
     # If the fike doesn't exist yet, return an empty list.(this will usually occur in the first run of the program)
-    def load_posts(self) -> List[SocialPost]: # Alaways returns a list of post Objects.
+    def load_posts(self) -> list[SocialPost]: # Alaways returns a list of post Objects.
         try:
             with open(self.filename, "r") as f:
                 data = json.load(f)
